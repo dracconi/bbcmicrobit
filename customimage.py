@@ -1,10 +1,14 @@
 from microbit import *
+import random
 
-xy = [[9,9,9,9,9],[0,0,0,0,0],[9,3,9,3,9],[9,9,9,9,9],[1,1,1,1,1]]
+opt = [[9,9,9,9,9],[9,9,0,9,9]]
 
-for yi, y in enumerate(xy):
-    for xi, x in enumerate(y):
-        #print "x:"+str(x)
-        #print "y:"+str(y)
-
-        display.set_pixel(xi,yi,x)
+while True:
+    if button_a.is_pressed():
+        xy = []
+        for i in range(5):
+            xy.append(random.choice(opt))
+        for yi, y in enumerate(xy):
+            for xi, x in enumerate(y):
+                display.set_pixel(xi, yi, x)
+        sleep(1000)
